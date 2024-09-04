@@ -172,10 +172,10 @@
 <app-header/>
 <main class="main">  
   <section class="user-form">
-    <app-user-input/>
+    <app-user-input (UserInputs) = "OnCalculateInvData($event)"/>
   </section>
   <section class="table">
-    
+    <app-inv-result [CalculatedResult] ="resultData"/>
   </section>
 </main>
 
