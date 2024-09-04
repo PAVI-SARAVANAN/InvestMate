@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ControlComponent } from "../shared/control/control.component";
+
+import { type InvData } from '../data.model';
 
 @Component({
   selector: 'app-user-input',
@@ -10,13 +12,21 @@ import { ControlComponent } from "../shared/control/control.component";
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  enteredIniInvestment = '0';
-  enteredAnnInvestment = '0';
-  enteredExpReturn = '10';
-  enteredDuration = '1';
+  enteredIniInvestment!:string;
+  enteredAnnInvestment!:string;
+  enteredExpReturn!:string;
+  enteredDuration!:string;
+
+  @Output() UserInputs = new EventEmitter<InvData>();
 
   OnSubmit(){
-    console.log(this.enteredAnnInvestment + 'Submitted');
+    console.log("clicked");
+    this.UserInputs.emit({
+      InitialInvestment: +this.enteredIniInvestment,
+      AnnualInvestment: +this.enteredAnnInvestment,
+      ExpectedReturn: +this.enteredExpReturn,
+      Duration: +this.enteredDuration
+    });
   }
 
 }

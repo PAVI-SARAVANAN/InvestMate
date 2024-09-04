@@ -5,10 +5,10 @@
     </div>
     <div class="input-group">
         <app-control label=" Expected Return" name= "Expected Return" [(userInputModel)]= "enteredExpReturn"/>
-        <app-control label="Duration" name= "Duration" [(userInputModel)] = "enteredDuration"/>
+        <app-control label="Duration (Year)" name= "Duration" [(userInputModel)] = "enteredDuration"/>
     </div>  
     <p>
-        <button>Calculate</button>
+        <button (click)=" OnSubmit()" [disabled] = "!enteredIniInvestment || !enteredAnnInvestment || !enteredExpReturn || !enteredDuration">Calculate</button>
     </p>
 </form>
 
