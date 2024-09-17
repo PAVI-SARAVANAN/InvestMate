@@ -2,8 +2,13 @@
 `InvestMate - An Investment Calculator`
 
 ⭐Features:
--Investment Form: A form which get the investment details from the user.
--Investment Result: A table which displays the investment details for the user based on the input.
+-Investment Form: 
+  -A user friendly form designed to collect essential investment details such as:
+     -Initial Investment
+     -Annual Investment
+     -Expected Return (Rate)
+     -Investment Duration (Years) 
+-Investment Result: A detailed table is designed to display the investment's growth year by year. 
 
 Here is an overview of InvestMate:
 
