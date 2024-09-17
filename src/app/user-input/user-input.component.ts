@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ControlComponent } from "../shared/control/control.component";
 
 import { type InvData } from '../data.model';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-input',
@@ -17,16 +19,18 @@ export class UserInputComponent {
   enteredExpReturn!:string;
   enteredDuration!:string;
 
-  @Output() UserInputs = new EventEmitter<InvData>();
+  Appservice = inject(AppService);
+  private routes = inject(Router);
 
   OnSubmit(){
-    console.log("clicked");
-    this.UserInputs.emit({
+   this.Appservice.OnCalculateInvData({
       InitialInvestment: +this.enteredIniInvestment,
       AnnualInvestment: +this.enteredAnnInvestment,
       ExpectedReturn: +this.enteredExpReturn,
       Duration: +this.enteredDuration
-    });
+    }); 
+    this.routes.navigate(['calculate']);
   }
+
 
 }

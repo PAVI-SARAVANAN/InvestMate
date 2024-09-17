@@ -8,7 +8,7 @@
         <app-control label="Duration (Year)" name= "Duration" [(userInputModel)] = "enteredDuration"/>
     </div>  
     <p>
-        <button (click)=" OnSubmit()" [disabled] = "!enteredIniInvestment || !enteredAnnInvestment || !enteredExpReturn || !enteredDuration">Calculate</button>
+        <button  [disabled] = "!enteredIniInvestment || !enteredAnnInvestment || !enteredExpReturn || !enteredDuration">Calculate</button>
     </p>
 </form>
 

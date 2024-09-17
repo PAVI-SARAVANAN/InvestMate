@@ -1,3 +1,8 @@
 main{
     margin: 1rem 2rem;
 }
+p{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
