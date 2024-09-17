@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentChecked, Component, inject, Input } from '@angular/core';
 
 import {type InvResult } from '../data.model';
 import { CurrencyPipe } from '@angular/common';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-inv-result',
@@ -10,7 +11,14 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './inv-result.component.html',
   styleUrl: './inv-result.component.css'
 })
-export class InvResultComponent {
-  @Input() CalculatedResult?:InvResult[];
+export class InvResultComponent implements AfterContentChecked{
+ 
+  CalculatedResult:InvResult[] = [];
+
+  appservice = inject(AppService);
+
+  ngAfterContentChecked(): void {
+    this.CalculatedResult = this.appservice.getResultdata();
+  }
 
 }
